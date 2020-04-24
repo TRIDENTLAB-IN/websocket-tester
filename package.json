@@ -1,0 +1,27 @@
+{
+  "name": "websocket-tester",
+  "version": "0.1.0",
+  "description": "A minimal application for testing,debuging websocket communication",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build --linux snap"
+  },
+  "repository": "https://github.com/DeltausTech/websocket-tester",
+  "keywords": [
+    "websocket",
+    "testing",
+    "Electron",
+    "linux",
+    "tools"
+  ],
+  "author": "Delta Tech",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.18",
+    "electron-builder": "^20.27.1"
+  },
+  "dependencies": {
+    "electron-json-storage": "^4.1.8"
+  }
+}
