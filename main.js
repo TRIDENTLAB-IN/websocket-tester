@@ -10,9 +10,10 @@ function createWindow () {
     icon: __dirname + '/assets/image/logo.png'
   })
 
-  // and load the index.html of the app.
-  win.loadFile('index.html')
 
+  win.loadFile('index.html')
+  win.webContents.openDevTools()
+win.setTitle("Websocket Tester")
 }
 
 // This method will be called when Electron has finished

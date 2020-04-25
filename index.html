@@ -2,14 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket Tester</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="assets/css/icon.css?family=Material+Icons">
+    <link rel="stylesheet" href="assets/css/material.blue-purple.min.css">
+    <script defer src="assets/js/material.min.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+
+
+
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+    <script>
+    if(!localStorage.getItem("hostlist")){
+        console.log("host list no")
+    }else{
+      console.log("host list yes")
+    }
+
+    </script>
   </body>
 </html>
