@@ -2,6 +2,9 @@
 
 var isConnected = false;
 var hosturl;
+var raw_data;
+var isObj = false;
+var obj;
 // fetch host list
 function fetch_host_list(){
   var list = localStorage.getItem("hostlist");
@@ -40,7 +43,7 @@ function show_host_list(){
   $("#host").val(hostlist[0]);
   $.each(hostlist,function(k,v){
     if(hlc < 11){
-      $("#hostlist").append('<li class="mdl-menu__item hostitem" onclick="setHost(this)">'+v+'</li>');
+      $("#hostlist").append('<li class="mdl-menu__item hostitem" data-url="'+v+'" onclick="setHost(this)">'+v+'</li>');
    }
    hlc++;
  });
@@ -67,8 +70,8 @@ $("#cb").click(function(){
 })
 
 //set host on selection
-function setHost(){
-  
+function setHost(elem){
+  $("#host").val($( elem ).data("url"));
 }
 
 ///////////////////////////WEBSOCKET////////////
@@ -77,12 +80,14 @@ var websocket_client=null;
 // connect to websocket
 function ws_connect(hosturl){
   $("#progress").show();
+  $("#cb").html('Connecting.. <i class="material-icons">hourglass_empty</i>');
   websocket_client = new WebSocket(hosturl);
   websocket_client.onopen = function(evt) { onOpen(evt) };
   websocket_client.onclose = function(evt) { onClose(evt) };
   websocket_client.onmessage = function(evt) { onMessage(evt) };
   websocket_client.onerror = function(evt) { onError(evt) };
-
+  $( "#host" ).prop( "disabled", true );
+  $( "#accbtn").hide(100);
 }
 //disconnect from websocket
 function ws_disconnect(){
@@ -105,19 +110,72 @@ function onOpen(evt){
 
 function onClose(evt){
   isConnected = false;
+  $( "#host" ).prop( "disabled", false );
   $("#cb").html('Connect <i class="material-icons">send</i>');
   $("#cb").removeClass('mdl-button--accent');
   $("#cb").addClass('mdl-button--primary');
   snackbar("Disconnected from "+hosturl);
-    $("#conicon").removeClass('mdl-color-text--light-green-A700');
-      $("#conicon").addClass('mdl-color-text--red-800');
+  $("#conicon").removeClass('mdl-color-text--light-green-A700');
+  $("#conicon").addClass('mdl-color-text--red-800');
+  $( "#accbtn").show(100);
 }
 function onMessage(evt){
   $("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">'+evt.data+'</td></tr>');
 console.log(evt);
 }
+
+$("#data").keyup(function() {
+  // get data
+  raw_data = $("#data").val();
+
+  try{
+     obj = JSON.parse(raw_data);
+     isObj = true;
+  }catch(e){
+    //console.log(e);
+    isObj = false;
+  }
+  if(isObj){
+      $("#isobj").addClass('mdl-color-text--light-green-A400');
+  }else{
+    $("#isobj").removeClass('mdl-color-text--light-green-A400');
+  }
+});
+
+
+$("#emit").click(function(){
+  if(isConnected){
+    raw_data = $("#data").val();
+    // send as json ?
+
+    if(raw_data != null || raw_data != ""){
+      var buf =null;
+      if($('#objswitch').is(":checked")){
+        console.log('send as obj');
+        // send as obj set
+        if(isObj){
+          buf=obj;
+          obj=null;
+        }else{
+          buf = String(raw_data);
+        }
+      }else{
+        // send as string
+        console.log('send as STRING');
+        buf = String(raw_data);
+      }
+        websocket_client.send(buf);
+      $("#data").val(''); // empty the data area
+    }
+
+  }else {
+    snackbar("Please connect to websocket First!");
+  }
+})
+
 function onError(evt){
-console.log(evt);
+$("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">ERROR->'+evt.data+'</td></tr>');
+
 }
 
 

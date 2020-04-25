@@ -76,7 +76,10 @@ html, body {
 }
 
 .wt-content {
-  max-width: 90%;
+  max-width: 98%;
+}
+.mdl-textfield{
+  width: 500px ;
 }
 
 .wt-charts {

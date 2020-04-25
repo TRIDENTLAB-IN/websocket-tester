@@ -18,7 +18,7 @@
         <div class="mdl-layout__header-row">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text"  id="host">
-            <label class="mdl-textfield__label" for="sample4">Host...</label>
+            <label class="mdl-textfield__label" for="host">Host...</label>
             <span class="mdl-textfield__error">Input is not a Host!</span>
           </div>
           <span>&nbsp;</span>
@@ -29,7 +29,7 @@
             <ul id="hostlist" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
 
 
-              
+
             </ul>
           <button id="cb" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
             Connect <span class="material-icons" id="cbi">send</span>
@@ -60,26 +60,44 @@
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid wt-content">
-          <table class="mdl-data-table mdl-js-data-table">
-            <thead>
-            <tr>
-              <th class="mdl-data-table__cell--non-numeric">Message</th>
+          <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__title mdl-card--expand mdl-color-text--white mdl-color--teal-200">
+                <div class="mdl-textfield mdl-js-textfield">
+                  <textarea class="mdl-textfield__input" type="text" rows= "5" id="data" ></textarea>
+                  <label class="mdl-textfield__label mdl-color-text--light-blue-50" for="data">DATA/Message</label>
+                </div>
 
-            </tr>
-          </thead>
-          <tbody id="msglog">
+           </div>
+           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
 
-          </tbody>
-        </table>
+             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="objswitch">
+  <input type="checkbox" id="objswitch" class="mdl-switch__input" checked>
+  <span class="mdl-switch__label"> Send as <span id="isobj">JSON</span></span>
+</label>
 
-
-
-
-
-
-
-
+           </div>
+           <div class="mdl-card__actions mdl-card--border">
+            <button id="emit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
+              Send/EMIT
+            </button>
+           </div>
+         </div>
           </div>
+          <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+            <table class="mdl-data-table mdl-js-data-table">
+              <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Message</th>
+
+              </tr>
+            </thead>
+            <tbody id="msglog">
+
+            </tbody>
+          </table>
+          </div>
+        </div>
 
       </main>
     </div>
