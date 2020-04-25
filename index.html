@@ -52,6 +52,7 @@
         <nav class="wt-navigation mdl-navigation mdl-color--blue-grey-800">
         <span class="material-icons" id="conicon">graphic_eq</span>
         <hr class="nav_divid">
+        <div class="mdl-layout-spacer"></div>
 
 
 
@@ -72,19 +73,24 @@
            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
 
              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="objswitch">
-  <input type="checkbox" id="objswitch" class="mdl-switch__input" checked>
-  <span class="mdl-switch__label"> Send as <span id="isobj">JSON</span></span>
-</label>
+               <input type="checkbox" id="objswitch" class="mdl-switch__input" checked>
+               <span class="mdl-switch__label"> Send as <span id="isobj">JSON</span></span>
+             </label>
 
            </div>
            <div class="mdl-card__actions mdl-card--border">
             <button id="emit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
-              Send/EMIT
+              Send/EMIT <span class="material-icons">double_arrow</span>
+            </button>
+            <span class="mdl-layout-spacer"></span>
+            <button id="clear_msg" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color-text--white">
+              Clear <span class="material-icons">clear</span>
             </button>
            </div>
          </div>
           </div>
-          <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+
+          <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
             <table class="mdl-data-table mdl-js-data-table">
               <thead>
               <tr>

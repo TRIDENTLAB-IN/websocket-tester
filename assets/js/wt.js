@@ -123,6 +123,9 @@ function onMessage(evt){
   $("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">'+evt.data+'</td></tr>');
 console.log(evt);
 }
+$("#clear_msg").click(function(){
+  $("#msglog").html('');
+})
 
 $("#data").keyup(function() {
   // get data

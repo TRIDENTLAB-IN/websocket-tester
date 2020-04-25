@@ -15,9 +15,9 @@ function createWindow () {
 
 
   win.loadFile('index.html')
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
   win.setTitle("Websocket Tester")
-  //win.setMenu(null);
+  win.setMenu(null);
   win.maximize();
 }
 
