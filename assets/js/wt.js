@@ -120,7 +120,7 @@ function onClose(evt){
   $( "#accbtn").show(100);
 }
 function onMessage(evt){
-  $("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">'+evt.data+'</td></tr>');
+  $("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">-> '+evt.data+'</td></tr>');
 console.log(evt);
 }
 $("#clear_msg").click(function(){
