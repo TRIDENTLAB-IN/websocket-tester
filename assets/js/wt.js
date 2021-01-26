@@ -120,7 +120,7 @@ function onClose(evt){
   $( "#accbtn").show(100);
 }
 function onMessage(evt){
-  $("#msglog").prepend('<tr><td class="mdl-data-table__cell--non-numeric">-> '+evt.data+'</td></tr>');
+  $("#msglog").append('<tr><td class="mdl-data-table__cell--non-numeric text-green">RECV:'+evt.data+'</td></tr>');
 console.log(evt);
 }
 $("#clear_msg").click(function(){
@@ -169,6 +169,8 @@ $("#emit").click(function(){
       }
         websocket_client.send(buf);
       $("#data").val(''); // empty the data area
+      $("#msglog").append('<tr><td class="mdl-data-table__cell--non-numeric text-blue">SENT:'+raw_data+'</td></tr>');
+
     }
 
   }else {

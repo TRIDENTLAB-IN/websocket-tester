@@ -1,6 +1,6 @@
 {
   "name": "websocket-tester",
-  "version": "0.1.0",
+  "version": "0.1.8",
   "description": "A minimal application for testing,debuging websocket communication",
   "main": "main.js",
   "scripts": {
