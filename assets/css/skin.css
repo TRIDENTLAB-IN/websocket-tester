@@ -14,8 +14,6 @@ html, body {
 }
 .wt-drawer {
   border: none;
-
-
 }
 .mdl-dialog{
   min-width:30% !important;
@@ -173,5 +171,11 @@ _:-ms-input-placeholder, :root .wt-graph {
   align-items: center;
 }
 .wt-header{
+}
 
+.text-blue{
+  color: #0295FE;
+}
+.text-green{
+  color: #5FBA7D;
 }
