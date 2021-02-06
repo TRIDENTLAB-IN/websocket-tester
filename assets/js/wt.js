@@ -81,7 +81,8 @@ var websocket_client=null;
 function ws_connect(hosturl){
   $("#progress").show();
   $("#cb").html('Connecting.. <i class="material-icons">hourglass_empty</i>');
-  websocket_client = new WebSocket(hosturl);
+  var sec_protocol =$("#sec-websocket-protocol").val();
+  websocket_client = new WebSocket(hosturl,sec_protocol);
   websocket_client.onopen = function(evt) { onOpen(evt) };
   websocket_client.onclose = function(evt) { onClose(evt) };
   websocket_client.onmessage = function(evt) { onMessage(evt) };

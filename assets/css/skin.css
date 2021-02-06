@@ -179,3 +179,5 @@ _:-ms-input-placeholder, :root .wt-graph {
 .text-green{
   color: #5FBA7D;
 }
+.sec-protocol{width: 150px;
+margin-right: 20px;}
