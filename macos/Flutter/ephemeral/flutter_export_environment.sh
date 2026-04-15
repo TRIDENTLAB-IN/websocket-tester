@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/home/aaryadev/snap/flutter/common/flutter"
+export "FLUTTER_ROOT=/media/aaryadev/WDTTB/DEVELOPMENT/flutter"
 export "FLUTTER_APPLICATION_PATH=/media/aaryadev/WDTTB/DEVELOPMENT/Projects/Trident/websocket-tester"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"

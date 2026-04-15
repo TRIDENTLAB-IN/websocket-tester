@@ -15,8 +15,8 @@ class ConnectionColumn extends StatelessWidget {
       child: Consumer<WsConnectionState>(
         builder: (context, state, child) {
           return Container(
-            width: 350,
-            margin: const EdgeInsets.only(right: 2),
+            margin: const EdgeInsets.only(right: 0),
+
             color: const Color(0xFF2B2D3A), // Dark column background
             child: Column(
               children: [

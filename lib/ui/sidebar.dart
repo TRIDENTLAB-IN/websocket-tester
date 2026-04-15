@@ -35,12 +35,16 @@ class Sidebar extends StatelessWidget {
             child: ListView.builder(
               itemCount: appState.savedPayloads.length,
               itemBuilder: (context, index) {
+                // IMPORTANT: Defining 'payload' inside the builder scope
                 final payload = appState.savedPayloads[index];
                 return ListTile(
                   title: Text(payload.name),
                   subtitle: Text(payload.content, maxLines: 1, overflow: TextOverflow.ellipsis),
                   leading: const Icon(Icons.code, size: 16),
                   dense: true,
+                  onTap: () {
+                    appState.applyPayloadToActiveConnection(payload.content);
+                  },
                 );
               },
             ),

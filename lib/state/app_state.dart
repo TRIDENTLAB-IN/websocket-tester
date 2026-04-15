@@ -10,6 +10,20 @@ class AppState extends ChangeNotifier {
   List<WsConnectionState> activeConnections = [];
 
   int _connectionCounter = 1;
+  int activeConnectionIndex = 0; // Tracks which tab/column is selected
+
+  void setActiveConnection(int index) {
+    activeConnectionIndex = index;
+    notifyListeners();
+  }
+
+  void applyPayloadToActiveConnection(String content) {
+    if (activeConnections.isNotEmpty && activeConnectionIndex < activeConnections.length) {
+      // Update the controller directly so the UI reflects the change immediately
+      activeConnections[activeConnectionIndex].payloadController.text = content;
+      notifyListeners();
+    }
+  }
 
   AppState() {
     _loadData();
